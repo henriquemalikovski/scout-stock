@@ -1,6 +1,8 @@
-const router = require('express').Router()
-const productRouter = require("./product-route.js")
+import Router from 'express'
+import productRouter from "./product-route.js"
+
+const router = Router();
 
 router.use("/products", productRouter);
 
-module.exports = router;
+export default router;
