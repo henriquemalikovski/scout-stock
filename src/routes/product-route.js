@@ -1,12 +1,13 @@
 import express from 'express'
 import productController from "../controllers/product-controller.js"
+import authService from '../services/auth-service.js'
 
 const productRouter = express.Router()
 
-productRouter.route('/').post((req, res) => productController.create(req, res))
-productRouter.route('/').get((req, res) => productController.getAll(req, res))
-productRouter.route('/:id').get((req, res) => productController.get(req, res))
-productRouter.route('/:id').delete((req, res) => productController.delete(req, res))
-productRouter.route('/:id').put((req, res) => productController.update(req, res))
+productRouter.post('/', authService.isAdmin, productController.create)
+productRouter.get('/', authService.authorize, productController.getAll)
+productRouter.get('/:id', authService.authorize, productController.get)
+productRouter.delete('/:id', authService.isAdmin, productController.delete)
+productRouter.put('/:id', authService.isAdmin, productController.update)
 
 export default productRouter

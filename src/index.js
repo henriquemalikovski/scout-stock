@@ -15,7 +15,7 @@ connectDB();
 app.use('/api', router);
 
 app.get('/', (req, res) => {
-  res.send('Scout Stock Express!');
+  res.status(200).json({ "mensage": "Scout Stock Express!" });
 })
 
 const port = process.env.PORT || 3000
