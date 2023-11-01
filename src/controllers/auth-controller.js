@@ -2,7 +2,6 @@ import User from "../models/user.js";
 import authService from "../services/auth-service.js";
 import md5 from 'md5';
 import * as dotenv from 'dotenv'
-import { log } from "console";
 dotenv.config();
 
 async function verifyCredentials(data) {
