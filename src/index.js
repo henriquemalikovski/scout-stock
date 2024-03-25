@@ -15,11 +15,11 @@ app.use(express.json());
 
 // connectDB();
 
-// app.use('/api', router);
-// app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-// app.get('/', (req, res) => {
-//   res.status(200).json({ "mensage": "Scout Stock Express!" });
-// })
+app.use('/api', router);
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.get('/', (req, res) => {
+  res.status(200).json({ "mensage": "Scout Stock Express!" });
+})
 
 app.use('/api/caf', (req, res) => {
   res.status(200).json({
