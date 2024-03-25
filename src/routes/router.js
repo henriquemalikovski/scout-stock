@@ -11,4 +11,15 @@ router.use("/users", userRouter);
 router.use("/auth", authRouter);
 router.use("/companies", routerCompany);
 
+router.use('/caf', (req, res) => {
+    res.status(200).json({
+        "total_docs": 250,
+        "docs_5min": 55,
+        "docs_10min": 20,
+        "docs_15min": 15,
+    });
+})
+
+
+
 export default router;

@@ -12,6 +12,11 @@ const productSchema = new Schema({
   },
   amount: {
     type: Number,
+    required: true,
+  },
+  company: {
+    type: Schema.Types.ObjectId,
+    ref: 'Company',
     required: true
   },
 })

@@ -1,8 +1,14 @@
 import Products from '../models/product.js'
+import companyController from './company-controller.js'
 
 const productController = {
   create: async (req, res) => {
-    const { name, description, amount } = req.body
+    const { name, description, amount, idCompany, cnpjCompany } = req.body
+    if (!idCompany || !cnpjCompany) {
+      res.status(400).json({ message: 'Company not found' })
+      return
+    }
+
     const product = {
       name,
       description,

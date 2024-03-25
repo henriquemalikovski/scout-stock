@@ -31,10 +31,8 @@ const authController = {
       })
       res.status(200).send({
         token: token,
-        data: {
-          email: user.email,
-          name: user.name
-        }
+        email: user.email,
+        name: user.name
       })
     } catch (e) {
       res
